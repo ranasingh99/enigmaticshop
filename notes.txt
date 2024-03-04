@@ -1,0 +1,46 @@
+next()-- used to execute upcoming middleware
+
+bodyparser - body parser is the middleware that is used to the parse the requested body.
+Commonly used body parsing middleware includes:
+=============================================
+In Express.js, a popular web application framework for Node.js, the term "body parser" refers to middleware that is used to parse the request body. When a client sends data to a server, it often includes information in the request body, especially in the case of POST and PUT requests. The body parser middleware helps in extracting this data from the request body and makes it accessible in a convenient way for the server to handle.
+
+In earlier versions of Express, the body parser middleware was bundled with the framework itself. However, starting from Express version 4.16.0, the middleware is no longer bundled with Express, and users need to install it separately.
+
+Commonly used body parsing middleware includes:
+
+1. **`express.json()`**: This middleware parses incoming requests with JSON payloads. It is commonly used for handling JSON data submitted by clients.
+
+    ```javascript
+    const express = require('express');
+    const app = express();
+
+    app.use(express.json());
+    ```
+
+2. **`express.urlencoded()`**: This middleware parses incoming requests with URL-encoded payloads. It is often used for processing form data submitted by HTML forms.
+
+    ```javascript
+    const express = require('express');
+    const app = express();
+
+    app.use(express.urlencoded({ extended: true }));
+    ```
+
+    The `extended: true` option allows parsing of complex objects and arrays.
+
+3. **`multer`**: If your application needs to handle file uploads, you might use the `multer` middleware in conjunction with the body parser middleware. `multer` is a separate middleware specifically designed for handling multipart/form-data, which is commonly used for file uploads.
+
+    ```javascript
+    const express = require('express');
+    const multer = require('multer');
+    const upload = multer();
+    const app = express();
+
+    app.use(upload.none()); // Parse only the text fields, ignore file uploads
+
+    // Your route handling code here
+    ```
+
+These body parsers make it easier for developers to work with incoming data in the request body by providing a parsed representation in the `req.body` object. It's important to use the appropriate body parser based on the content type of the data being sent by the client.
+=====================================================================================

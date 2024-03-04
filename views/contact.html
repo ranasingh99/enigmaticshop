@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact-page</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Shop</a>
+        <a href="/add-product">Add Product</a>
+        <a href="/contact-us">Contact Us</a>
+    </nav>
+    <main>
+        <form action="/contact-detail" method="POST">
+            <label for="cust-name">Visitor Name</label>
+            <input type="text" name="cust-name" class="inputval"><br><br>
+            <label for="cust-email">Visitor Email</label>
+            <input type ="email" name="cust-email" class="inputval"><br><br>
+            <button type="submit" class="btn">SEND</button>
+        </form>
+    </main>
+</body>
+</html>
